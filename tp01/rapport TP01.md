@@ -102,14 +102,25 @@ docker rmi <nom de l'image>
 ## 3. Construire des images
 
 ### 3.1. Figer un container 
+| J'ai installer nano et modifié la page web d'acceuil.
 
+![alt text](img/image3.png)
+
+| J'ai créé une image "nginx_perso_tp01"
+
+![alt text](img/image4.png)
 
 ### 3.2. Créer une image sur base d'un Dockerfile
+
+| J'ai créé une image nginx_perso_tp01_2 avec nano et un site web perso, le tout basé sur le Dockerfile donné.
+
+![alt text](img/image5.png)
 
 
 ## Exercices récapitulatifs
 
 Documentez ici la réalisation des exercices, via des explications et des snapshots. 
+
 ### 4.1. Démarrer un serveur Web Apache
 
 
