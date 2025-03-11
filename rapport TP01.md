@@ -96,7 +96,7 @@ docker rmi <nom de l'image>
 | Le port 80 est ouvert autant sur le container que sur la machine "80:80"
 
 ![alt text](img/image.png)
-
+![image](https://github.com/user-attachments/assets/5ae6bbf3-d633-440f-be88-07ea7b3e6166)
 
 
 ## 3. Construire des images
