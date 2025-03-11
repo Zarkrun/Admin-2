@@ -123,10 +123,42 @@ Documentez ici la réalisation des exercices, via des explications et des snapsh
 
 ### 4.1. Démarrer un serveur Web Apache
 
+| J'ai téléchrger une image de apache (httpd) ensuite j'y ai créé un deuxième virtualHost avec comme ports 8080 et un site web avec "Hello arthur gavage". j'ai ensuite créé une image sur base des modifications faites et l'ai lancé en ouvrant les ports 80 et 8080.
+
+
+![alt text](img/image6.png)
+![alt text](img/image7.png)
 
 ### 4.2. Lancer un résolveur Bind dans un container Docker
 
 1. Quelle configuration avez-vous effectuée au niveau des ports ? 
+
+| docker run -d --name bind9 -p 53:53/udp -p 53:53/tcp ubuntu/bind9
+
+
 2. Qu'avez-vous observé dans la trace Wireshark qui prouve que la configuration est correcte?  Illustrez avec un screenshot de la capture. 
 
+| J'ai utilisé le filtre udp.port == 53 dans wireshark pour trouver le traffic généré par la commande "nslookup google.com 127.0.0.1" avec comme résultat
+
+![alt text](img/image9.png)
+
+![alt text](img/image8.png)
+
 ### 4.3. Container avec script Python
+
+Dockerfile
+```dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY script.py .
+CMD ["python", "script.py"]
+```
+
+script.py
+```python
+from datetime import datetime
+now = datetime.now()
+print(f"Nous sommes le {now.date()} à {now.time()}")
+```
+
+![alt text](img/image10.png)
