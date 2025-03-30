@@ -1,0 +1,14 @@
+$ORIGIN l1-10.ephec-ti.be.
+$TTL 86400
+
+@    IN    SOA   soa.l1-10.ephec-ti.be. admin.l1-10.ephec-ti.be. (
+               2025032304 ; Serial
+               3600       ; Refresh
+               1800       ; Retry
+               1209600    ; Expire
+               86400 )    ; Minimum TTL
+
+@         IN    NS    ns.l1-10.ephec-ti.be.
+ns        IN    A     54.36.180.176
+www       IN    CNAME ns.l1-10.ephec-ti.be.
+blog      IN    CNAME ns.l1-10.ephec-ti.be.
