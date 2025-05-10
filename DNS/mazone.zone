@@ -1,0 +1,31 @@
+$ORIGIN l1-10.ephec-ti.be.
+$TTL 86400
+
+@    IN    SOA   ns.l1-10.ephec-ti.be. admin.l1-10.ephec-ti.be. (
+               2025041601 ; Serial
+               14400      ; Refresh
+               3600       ; Retry
+               1209600    ; Expire
+               86400 )    ; Minimum TTL
+
+@         IN    NS    ns.l1-10.ephec-ti.be.
+ns        IN    A     54.36.180.176
+www       IN    CNAME ns.l1-10.ephec-ti.be.
+blog      IN    CNAME ns.l1-10.ephec-ti.be.
+
+mail      IN    A     54.36.180.176
+@         IN    MX    10 mail.l1-10.ephec-ti.be.
+
+_dmarc.l1-10.ephec-ti.be. IN TXT "v=DMARC1; p=none; rua=mailto:user1@l1-10.ephec-ti.be; ruf=mailto:user1@l1-10.ephec-ti.be; sp=none; ri=86400"
+
+@	  IN 	TXT "v=spf1 mx ~all"
+
+mail._domainkey IN      TXT     ( 
+		"v=DKIM1; h=sha256; k=rsa; "
+          	"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7DiF5PteF9SXe31xCWshd4ycl8D9YJSwo7dcqwc3i0/MiSADaiFC1gpMJKvYup3WdDAqr"
+		"oHSuNehvuVaIb99L8Vha1cU0hwB/OgY+H7EGWV3fY0CFszOP0ToTCaMxTzZgnyUvvh+OkTjtL5QoHhWIH478HD79rvBPKihiEpvKgzNRRp6JB/Zfirk"
+		"yD/QGBvfWFm/ieOkc9QSPtG+8E1aL285FPVsLXW3DxNJ39QWI3qOpMt2btjPh7pRo2beyjOMAzU87oGbeINEYrppqDEn1sUOv7/44jNwmM5jGxPeO15"
+		"texUYiHVT/1J91TNkWsHsGRTDMllkduD5xT56sIFDpwIDAQAB" 
+	)
+
+_acme-challenge.l1-10.ephec-ti.be. IN TXT "GMavpCuO6-l-vUxDEguoaLoPR_KdBNnFSuzryRvSP74"

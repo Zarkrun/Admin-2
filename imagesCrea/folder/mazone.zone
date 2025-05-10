@@ -2,7 +2,7 @@ $ORIGIN l1-10.ephec-ti.be.
 $TTL 86400
 
 @    IN    SOA   soa.l1-10.ephec-ti.be. admin.l1-10.ephec-ti.be. (
-               2025032304 ; Serial
+               2025032305 ; Serial
                3600       ; Refresh
                1800       ; Retry
                1209600    ; Expire
@@ -12,3 +12,4 @@ $TTL 86400
 ns        IN    A     54.36.180.176
 www       IN    CNAME ns.l1-10.ephec-ti.be.
 blog      IN    CNAME ns.l1-10.ephec-ti.be.
+_acme-challenge.l1-10.ephec-ti.be. IN TXT "GMavpCuO6-l-vUxDEguoaLoPR_KdBNnFSuzryRvSP74"
