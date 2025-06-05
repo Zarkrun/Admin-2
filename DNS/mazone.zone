@@ -2,7 +2,7 @@ $ORIGIN l1-10.ephec-ti.be.
 $TTL 86400
 
 @    IN    SOA   ns.l1-10.ephec-ti.be. admin.l1-10.ephec-ti.be. (
-               2025041601 ; Serial
+               2025051101 ; Serial
                14400      ; Refresh
                3600       ; Retry
                1209600    ; Expire
@@ -15,6 +15,10 @@ blog      IN    CNAME ns.l1-10.ephec-ti.be.
 
 mail      IN    A     54.36.180.176
 @         IN    MX    10 mail.l1-10.ephec-ti.be.
+
+web.l1-10.ephec-ti.be.        150     IN      A       54.36.183.127
+web.l1-10.ephec-ti.be.        150     IN      A       54.36.180.176
+web.l1-10.ephec-ti.be.        150     IN      A       54.36.183.64
 
 _dmarc.l1-10.ephec-ti.be. IN TXT "v=DMARC1; p=none; rua=mailto:user1@l1-10.ephec-ti.be; ruf=mailto:user1@l1-10.ephec-ti.be; sp=none; ri=86400"
 

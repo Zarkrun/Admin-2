@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  db:
+    image: zarkrun/woody_database
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=woody
+      - MYSQL_ROOT_PASSWORD=pass
+    ports:
+      - '3306:3306'
+    networks:
+      - woody_net
+
+  api:
+    image: zarkrun/woody_api
+    restart: always
+    networks:
+      - woody_net
+    depends_on:
+      - redis
+
+  front:
+    image: zarkrun/woody_front
+    networks:
+      - woody_net
+
+  reverse:
+    image: zarkrun/woody_rp
+    ports:
+      - "80:8080"
+    depends_on:
+      - front
+      - api
+    networks:
+      - woody_net
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - woody_net
+
+networks:
+  woody_net:
+    driver: overlay
+

@@ -1,0 +1,33 @@
+limit_req_zone $binary_remote_addr zone=one:10m rate=10r/s;
+limit_req_status 429;
+resolver 127.0.0.11 valid=10s;
+
+server {
+    listen 8080;
+
+    location ^~ /api/misc {
+      limit_req zone=one burst=20 nodelay;
+      proxy_pass http://api_misc:5000/api/misc/;
+    }
+
+    location ^~ /api/orders {
+      limit_req zone=one burst=20 nodelay;
+      proxy_pass http://api_orders:5000/api/orders/;
+    }
+
+    location ^~ /api/products {
+      limit_req zone=one burst=20 nodelay;
+      proxy_pass http://api_products:5000/api/products/;
+    }
+
+    location /api/ {
+        limit_req zone=one burst=20 nodelay;
+        set $api_upstream http://api:5000/api/;
+        proxy_pass $api_upstream;
+    }
+
+    location / {
+        proxy_pass http://front:80;
+        limit_rate 300k;
+    }
+}
